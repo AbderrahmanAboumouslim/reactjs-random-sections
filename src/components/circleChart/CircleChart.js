@@ -14,20 +14,23 @@ import Chart from 'fusioncharts/fusioncharts.charts';
 // Include the theme as fusion
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 
+// Styling
+import styled from 'styled-components';
+
 // Adding the chart and theme as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
 
 const CircleChart = ({ data }) => {
   const chartConfigs = {
     type: 'doughnut3D', // The chart type
-    width: '100%', // Width of the chart
+    width: '700', // Width of the chart
     height: '400', // Height of the chart
     dataFormat: 'json', // Data type
     dataSource: {
       // Chart Configuration
       chart: {
         //Set the chart caption
-        caption: 'Stars per language',
+        caption: 'Trending SOLANA NFTs',
 
         theme: 'candy',
         decimals: 0,
@@ -39,7 +42,29 @@ const CircleChart = ({ data }) => {
     },
   };
 
-  return <ReactFC {...chartConfigs} />;
+  return (
+    <Wrapper>
+      <ReactFC {...chartConfigs} />
+      <Hide />
+    </Wrapper>
+  );
 };
+
+const Wrapper = styled.div`
+  background-color: red;
+  &:first-child {
+    position: relative;
+  }
+`;
+const Hide = styled.div`
+  position: absolute;
+  width: 9rem;
+  height: 5rem;
+  color: green;
+
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 100000000000000000000;
+`;
 
 export default CircleChart;
