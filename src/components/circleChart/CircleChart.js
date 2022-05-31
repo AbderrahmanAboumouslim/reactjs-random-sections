@@ -54,17 +54,13 @@ const Wrapper = styled.div`
   background-color: red;
   &:first-child {
     position: relative;
-  }
-`;
-const Hide = styled.div`
-  position: absolute;
-  width: 9rem;
-  height: 5rem;
-  color: green;
 
-  bottom: 2rem;
-  left: 2rem;
-  z-index: 100000000000000000000;
+    g {
+      fill: rgb(38, 42, 51);
+      font-size: 4rem;
+      pointer-events: none;
+    }
+  }
 `;
 
 export default CircleChart;
